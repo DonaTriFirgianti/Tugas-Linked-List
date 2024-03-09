@@ -63,3 +63,23 @@ def input_pesan():
   print("Ketik 'selesai' jika sudah selesai memesan")
   while True: # Mengulang sampai pengguna selesai
     nama = input("Pesan: ") # Menerima input nama menu
+    if nama == "selesai": # Jika pengguna selesai
+       break # Keluar dari Loop
+    elif nama in menu: # Jika nama menu valid
+       harga = menu[nama] # Mendapatkan harga menu
+       pesanan.tambah_pesanan(nama, harga) # Menambahkan pesanan ke Linked List
+    else: # Jika nama menu tidak valid
+        print("Menu tidak tersedia, silahkan coba lagi") # Memberi pesan error
+
+# Membua fungsi untuk menampilkandan membayar pesanan
+def bayar_pesanan():
+  print("Pesanan Anda adalah:")
+  pesanan.tampilkan_pesanan() # Menampilkan pesanan
+  total = pesanan.hitung_total() # Menghitung total harga
+  print("Total biaya yang harus dibayarkan adalah", total, "rupiah") # Menampilkan total harga
+
+# Memanggil fungsi input_pesan
+input_pesan()
+
+# Memanggil fungsi bayar_pesanan
+bayar_pesanan()
