@@ -29,4 +29,37 @@ class LinkedList:
     while current is not None: # Selama node tidak None
       print(current.nama, current.harga, "rupiah") # Mencetak nama dan harga node
       current = current.next # Berpindah ke node berikutnya
-      
+
+# Menghitung total harga dari semua node di linked list
+def hitung_total(self):
+  total = 0 # Menyimpan total harga
+  current = self.head # Selama node tidak None
+    total += current.harga # Menambanhkan harga node ke total
+    current = current.nest # Berpindah ke node berikutnya
+  return total # Mengembalikan total harga
+
+# Membuat objek Linked list
+pesanan = Linkedlist()
+
+# Membuat menu miexue
+menu = {
+  "Mixue Ice Cream": 5000,
+  "Boba Shake": 16000,
+  "Mi Sundae": 14000,
+  "Mi Ganas": 11000,
+  "Creamy Mango Boba": 22000
+}
+
+# Membuat fungsi untuk menampilkan menu
+def tampilkan_menu():
+  print("Menu Miexue:")
+  for nama, harga in menu.items():
+    print(nama, "->", harga, "rupiah")
+
+# Membuat fungsi  untuk menerima input dari pengguna
+def input_pesan():
+  tampilkan_menu() # Menampilkan menu
+  print("Silahkan masukkan nama menu yang ingin anda pesan")
+  print("Ketik 'selesai' jika sudah selesai memesan")
+  while True: # Mengulang sampai pengguna selesai
+    nama = input("Pesan: ") # Menerima input nama menu
